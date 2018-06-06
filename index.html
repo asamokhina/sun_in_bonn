@@ -11,26 +11,27 @@
 <svg class="scale"></svg>
 <br>
 <script>
-var data = d3.range(40);
+var data = d3.range(50);
 
 var colors = d3.scaleLinear()
-    .domain(d3.ticks(0, 40, 11))
+    .domain(d3.ticks(0, 50, 11))
     .range(["#051937", "#00506d", "#008b8a", "#7ac590", "#f6f69c"]);
         
-var svg = d3.select(".scale");
+var svg = d3.select(".scale")
+	.append("text")
+	      .style("text-anchor", "end")
+	      .text("8 or more hours");
 
 var rects = svg.selectAll(".rects")
 	.data(data)
 	.enter()
 	.append("rect")
 	.attr("y", 10)
-	.attr("height", 50)
+	.attr("height", 30)
 	.attr("x", (d,i)=>10 + i*9)
 	.attr("width", 6)
-	.attr("fill", d=>colors(d))
-	.append("text")
-	      .style("text-anchor", "end")
-	      .text("8 or more hours");
+	.attr("fill", d=>colors(d));
+
 	
 </script>
 	
