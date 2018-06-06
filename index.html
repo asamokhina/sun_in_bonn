@@ -8,10 +8,11 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
         
 <svg class="scale"></svg>
+<br>
 <script>
 var data = d3.range(10);
-var color = d3.scaleQuantize()
-    .domain([0.0, 8.05])
+var colors = d3.scaleLinear()
+    .domain(d3.ticks(0, 50, 11))
     .range(["#051937", "#00506d", "#008b8a", "#7ac590", "#f6f69c"]);
         
 var svg = d3.select("scale");
@@ -27,6 +28,7 @@ var rects = svg.selectAll(".rects")
 	.attr("fill", d=>colors(d))
 	.attr("stroke", "gray");
 </script>
+	
 <script>
 
 var width = 960,
